@@ -7,7 +7,7 @@ The pretrained network can be downloaded from https://drive.google.com/file/d/1V
 
 If you have issues with this code, please register an issue on this Github page. If you find it useful, please cite us:
 ```
-  @InProceedings{Long2015,
+  @InProceedings{Dominguez_WACV_2018,
   author = {Dominguez, Miguel and Dhamdhere, Rohan and Petkar, Atir and Jain, Saloni and  Sah, Shagan and Ptucha, Ray},
   title = {General-Purpose Point Cloud Feature Extractor},
   booktitle = {Winter Applications of Computer Vision 2018},
