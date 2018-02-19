@@ -1,0 +1,25 @@
+<!DOCTYPE FilterScript>
+<FilterScript>
+ <filter name="Voronoi Filtering">
+  <Param tooltip="Threshold used to discard the Voronoi vertices too far from the origin.We discard vertices are further than this factor times the bbox diagonal &lt;br>Growing values of this value will add more Voronoi vertices for a better tightier surface reconstruction.On the other hand they will increase processing time and could cause numerical problems to the qhull library.&lt;br>" max="2000" description="Pole Discard Thr" type="RichDynamicFloat" value="10" min="0" name="threshold"/>
+ </filter>
+ <filter name="Change the current layer">
+  <Param tooltip="The name of the current mesh" description="Mesh" type="RichMesh" value="0" name="mesh"/>
+ </filter>
+ <filter name="Delete Current Mesh"/>
+ <filter name="Poisson-disk Sampling">
+  <Param tooltip="The desired number of samples. The ray of the disk is calculated according to the sampling density." description="Number of samples" type="RichInt" value="500" name="SampleNum"/>
+  <Param tooltip="If not zero this parameter override the previous parameter to allow exact radius specification" max="3.89758" description="Explicit Radius" type="RichAbsPerc" value="0" min="0" name="Radius"/>
+  <Param tooltip="The over-sampling rate that is used to generate the intial Montecarlo samples (e.g. if this parameter is &lt;i>K&lt;/i> means that&lt;i>K&lt;/i> x &lt;i>poisson sample&lt;/i> points will be used). The generated Poisson-disk samples are a subset of these initial Montecarlo samples. Larger this number slows the process but make it a bit more accurate." description="MonterCarlo OverSampling" type="RichInt" value="20" name="MontecarloRate"/>
+  <Param tooltip="If true, it will generate an additional Layer with the montecarlo sampling that was pruned to build the poisson distribution." description="Save Montecarlo" type="RichBool" value="false" name="SaveMontecarlo"/>
+  <Param tooltip="If true Poisson Disc distances are computed using an approximate geodesic distance, e.g. an euclidean distance weighted by a function of the difference between the normals of the two points." description="Approximate Geodesic Distance" type="RichBool" value="false" name="ApproximateGeodesicDistance"/>
+  <Param tooltip="If true the original vertices of the base mesh are used as base set of points. In this case the SampleNum should be obviously much smaller than the original vertex number.&lt;br>Note that this option is very useful in the case you want to subsample a dense point cloud." description="Base Mesh Subsampling" type="RichBool" value="false" name="Subsample"/>
+  <Param tooltip="If true the vertices of the below mesh are used as starting vertices, and they will utterly refined by adding more and more points until possible. " description="Refine Existing Samples" type="RichBool" value="false" name="RefineFlag"/>
+  <Param tooltip="Used only if the above option is checked. " description="Samples to be refined" type="RichMesh" value="0" name="RefineMesh"/>
+  <Param tooltip="If true it will use a simple heuristic for choosing the samples. At a small cost (it can slow a bit the process) it usually improve the maximality of the generated sampling. " description="Best Sample Heuristic" type="RichBool" value="true" name="BestSampleFlag"/>
+  <Param tooltip="Used only if the Best Sample Flag is true. It control the number of attempt that it makes to get the best sample. It is reasonable that it is smaller than the Montecarlo oversampling factor." description="Best Sample Pool Size" type="RichInt" value="10" name="BestSamplePool"/>
+  <Param tooltip="If requested it will try to do a dicotomic search for the best poisson disk radius that will generate the requested number of samples with a tolerance of the 0.5%. Obviously it takes much longer." description="Exact number of samples" type="RichBool" value="true" name="ExactNumFlag"/>
+  <Param tooltip="The radius of the disk is allowed to vary between r and r*var. If this parameter is 1 the sampling is the same of the Poisson Disk Sampling" description="Radius Variance" type="RichFloat" value="1" name="RadiusVariance"/>
+ </filter>
+ <filter name="Delete Current Mesh"/>
+</FilterScript>

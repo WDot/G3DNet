@@ -1,0 +1,15 @@
+summary/
+__pycache__/
+*.tgz
+datasets/
+results/
+*.txt
+*.iml
+*.xml
+*.tfrecords
+*.pyc
+.nfs*
+*.npy
+*.o
+src/graphcnn/plots/*.csv
+src/graphcnn/plots/*.png
