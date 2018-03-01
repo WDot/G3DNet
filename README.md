@@ -5,6 +5,15 @@ This is code and a pretrained network for extracting features from point cloud o
 
 The pretrained network can be downloaded from https://drive.google.com/file/d/1VQ2nfBZfeWv60uQzbLv1yHrHTGbt-1Kk/view?usp=sharing and unzipped into the root of code under a directory named /snapshots. The run.sh script in the root directory has options to run the three separate training steps as well as options to extract features from the two pretrained models, G3DNet18 and G3DNet26. Read the contents of run.sh and make sure to fill in information as necessary (such as what dataset you're training on and its root directory).
 
+## Prerequisites
+
+1. Tensorflow (tested with 1.1)
+2. PyAMG (pip install pyamg)
+3. Transforms3D (pip install Transforms3D)
+
+
+## Citation
+
 If you have issues with this code, please register an issue on this Github page. If you find it useful, please cite us:
 ```
   @InProceedings{Dominguez_WACV_2018,
